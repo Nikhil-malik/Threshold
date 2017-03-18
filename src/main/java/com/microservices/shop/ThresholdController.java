@@ -2,12 +2,13 @@ package com.microservices.shop;
 
 import javax.inject.Inject;
 
-import org.springframework.stereotype.Controller;
+
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller
+@RestController
 public class ThresholdController {
 
 	private final ThresholdService thresholdService;
@@ -18,11 +19,11 @@ public class ThresholdController {
     }
 	
 	@RequestMapping("/getThreshold")
-	public ModelAndView getThreshold(){
+	public String getThreshold(){
 		
 		System.out.println("Threshold is"+thresholdService.getThreshold());
 		ModelMap model = new ModelMap();
         model.addAttribute("threshold", thresholdService.getThreshold());
-        return new ModelAndView("threshold" , model);
+        return "hello world";
 	}
 }

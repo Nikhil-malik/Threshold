@@ -6,7 +6,7 @@
 	<groupId>com.microservices.shop</groupId>
 	<artifactId>Threshold</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>Threshold</name>
 	<description>Threshold for inventory</description>
@@ -63,7 +63,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
+	<!--  		<plugin>
 		      <groupId>com.spotify</groupId>
 		      <artifactId>docker-maven-plugin</artifactId>
 		      <version>0.4.5</version>
@@ -71,17 +71,18 @@
 		        <imageName>dockerthreshold</imageName>
 		        <baseImage>java</baseImage>
 		        <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
-		        <!-- copy the service's jar file from target into the root directory of the image --> 
+		         copy the service's jar file from target into the root directory of the image  
 		        <resources>
 		           <resource>
 		             <targetPath>/</targetPath>
 		             <directory>${project.build.directory}</directory>
-		             <include>${project.build.finalName}.war</include>
+		             <include>${project.build.finalName}.jar</include>
 		           </resource>
 		        </resources>
 		      </configuration>
-    		</plugin>
+    		</plugin>  -->
 		</plugins>
+		<finalName>Threshold</finalName>
 	</build>
 
 
